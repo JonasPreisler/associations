@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Webviews</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @webviews.each do |webview| %>
+      <tr>
+        <td><%= webview.name %></td>
+        <td><%= link_to 'Show', webview %></td>
+        <td><%= link_to 'Edit', edit_webview_path(webview) %></td>
+        <td><%= link_to 'Destroy', webview, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Webview', new_webview_path %>

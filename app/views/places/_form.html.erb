@@ -1,0 +1,33 @@
+<%= form_for @place do |f| %>
+  <%= render 'shared/errors', object: @place %>
+
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <p><strong>Formfields:</strong></p>
+
+    <div id="addresses">
+      <%= f.fields_for :addresses do |address| %>
+        <%= render 'address_fields', f: address %>
+      <% end %>
+        <br />
+
+      <div class="links">
+        <%= link_to_add_association 'add formfield', f, :addresses %>
+      </div>
+        <br />
+
+      <p class="count">Total: <span><%= @place.addresses.count %></span></p>
+      <label class="control-label">Associated Form:</label>
+      <br />
+      <%= f.select :webview_id, @webview.all.map{ |m| [m.name,m.id]}, {}, placeholder: "Select webview", class: "form-control" %>
+
+
+    </div>
+  </div>
+
+  <%= f.submit %>
+<% end %>

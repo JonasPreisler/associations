@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @webview.name %>
+</p>
+
+
+<%= @addresses.each do |addresses| %>
+	<%= addresses.option_1 %><br />
+<% end %>

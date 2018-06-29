@@ -1,0 +1,10 @@
+
+<%= @place.title %>
+<br />
+<%= @addresses.each do |addresses| %>
+	<%= addresses.option_1 %><br />
+<% end %>
+<br />
+<br />
+<%= link_to @place.webview.name, webview_path(@webview) %>
+
